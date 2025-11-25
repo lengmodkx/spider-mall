@@ -13,12 +13,9 @@ SpiderMail 是一个电商数据爬虫项目，用于从淘宝和京东等平台
 
 ### ✅ 数据库配置
 - **数据库类型**: PostgreSQL 14.19
-- **主机**: 103.36.221.226
-- **端口**: 5432
-- **数据库名**: spider-mall
-- **用户名**: loemon
-- **密码**: lemon2judy
+- **配置方式**: 环境变量（安全）
 - **状态**: ✅ 连接成功，表已创建
+- **敏感信息**: 已从版本控制中移除
 
 ### ✅ 项目结构
 ```
@@ -120,15 +117,42 @@ with db_manager.get_session() as session:
 
 ## 配置说明
 
-### 数据库配置 (src/spidermail/config/settings.py)
-```python
-database:
-  host: 103.36.221.226
-  port: 5432
-  database: spider-mall
-  username: loemon
-  password: lemon2judy
+### 环境变量配置
+
+为了安全起见，所有敏感配置信息现在都通过环境变量配置。数据库连接信息等敏感数据已从版本控制中移除。
+
+#### 1. 复制环境配置文件
+```bash
+cp .env.example .env
 ```
+
+#### 2. 编辑 .env 文件设置你的配置
+```bash
+# 数据库配置
+DB_HOST=your_database_host
+DB_PORT=5432
+DB_NAME=your_database_name
+DB_USER=your_username
+DB_PASSWORD=your_password_here
+
+# 其他配置...
+REQUEST_DELAY=1.0
+LOG_LEVEL=INFO
+# ... 更多配置选项
+```
+
+#### 3. 可用的环境变量
+- **数据库**: `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`
+- **爬虫**: `REQUEST_DELAY`, `MAX_RETRIES`, `REQUEST_TIMEOUT`
+- **平台**: `TAOBAO_BASE_URL`, `JD_BASE_URL`, `MOBILE_CATEGORY`
+- **调度**: `SCHEDULE_ENABLED`, `CRAWL_TIME`, `TIMEZONE`
+- **日志**: `LOG_LEVEL`, `LOG_FILE_PATH`
+
+### 安全性
+- ✅ `.env` 文件已在 `.gitignore` 中，不会被提交
+- ✅ 所有敏感信息通过环境变量管理
+- ✅ 提供了 `.env.example` 作为配置模板
+- ✅ 默认值安全，不会暴露生产信息
 
 ### 爬虫配置
 ```python
