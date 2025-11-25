@@ -4,9 +4,10 @@ Crawl task models
 
 from datetime import datetime
 from sqlalchemy import Column, Integer, String, Text, DateTime, Boolean, ARRAY, JSON
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.sql import func
 
-from ..database.connection import Base
+Base = declarative_base()
 
 
 class CrawlTask(Base):

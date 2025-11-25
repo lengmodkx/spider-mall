@@ -1,0 +1,10 @@
+2025-11-25 22:19:26 | ERROR | spidermail.utils.data_cleaner:clean_product_data:169 | Error cleaning product data: 3 validation errors for ProductData
+price
+  Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='¥9999.00', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/float_parsing
+original_price
+  Input should be a valid number, unable to parse string as a number [type=float_parsing, input_value='¥10999.00', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/float_parsing
+sales_count
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='月销1000+', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.12/v/int_parsing, data: {'platform': 'taobao', 'title': 'Apple iPhone 15 Pro Max 256GB 蓝色', 'price': '¥9999.00', 'original_price': '¥10999.00', 'sales_count': '月销1000+', 'shop_name': 'Apple官方旗舰店', 'product_id': 'cb008bd76eb19577'}

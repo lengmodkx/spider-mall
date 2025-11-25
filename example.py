@@ -19,11 +19,11 @@ def main():
     """Example usage"""
     setup_logger()
 
-    print("🕷️ SpiderMail Example")
+    print("SpiderMail Example")
     print("=" * 30)
 
     # Test Taobao spider
-    print("\n📱 Testing Taobao Spider...")
+    print("\nTesting Taobao Spider...")
     try:
         taobao = TaobaoSpider()
         products = taobao.search_products("手机", page=1)
@@ -40,7 +40,7 @@ def main():
         print(f"Taobao spider error: {e}")
 
     # Test JD spider
-    print("\n📱 Testing JD Spider...")
+    print("\nTesting JD Spider...")
     try:
         jd = JDSpider()
         products = jd.search_products("手机", page=1)
@@ -57,7 +57,7 @@ def main():
         print(f"JD spider error: {e}")
 
     # Test data cleaning
-    print("\n🧹 Testing Data Cleaning...")
+    print("\nTesting Data Cleaning...")
     try:
         sample_product = {
             'platform': 'taobao',
@@ -77,7 +77,7 @@ def main():
     except Exception as e:
         print(f"Data cleaning error: {e}")
 
-    print("\n✅ Example completed!")
+    print("\nExample completed!")
 
 
 if __name__ == '__main__':

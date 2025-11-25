@@ -13,7 +13,7 @@ from loguru import logger
 class ProductData(BaseModel):
     """Product data validation model"""
     product_id: str = Field(..., min_length=1, max_length=100)
-    platform: str = Field(..., regex=r'^(taobao|jd)$')
+    platform: str = Field(..., pattern=r'^(taobao|jd)$')
     title: str = Field(..., min_length=1, max_length=1000)
     brand: Optional[str] = Field(None, max_length=100)
     price: Optional[float] = Field(None, ge=0)
@@ -32,7 +32,7 @@ class ProductData(BaseModel):
     location: Optional[str] = Field(None, max_length=100)
     shipping_info: Optional[str] = None
     tags: List[str] = []
-    status: str = Field(default="active", regex=r'^(active|inactive|deleted)$')
+    status: str = Field(default="active", pattern=r'^(active|inactive|deleted)$')
     source_url: Optional[str] = Field(None, max_length=1000)
 
     @validator('discount_rate')
@@ -71,7 +71,7 @@ class ReviewData(BaseModel):
     """Review data validation model"""
     review_id: str = Field(..., min_length=1, max_length=100)
     product_id: str = Field(..., min_length=1, max_length=100)
-    platform: str = Field(..., regex=r'^(taobao|jd)$')
+    platform: str = Field(..., pattern=r'^(taobao|jd)$')
     user_name: Optional[str] = Field(None, max_length=100)
     user_level: Optional[str] = Field(None, max_length=50)
     rating: int = Field(..., ge=1, le=5)
