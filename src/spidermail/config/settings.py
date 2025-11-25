@@ -11,9 +11,9 @@ class DatabaseSettings(BaseModel):
     """Database configuration"""
     host: str = Field(default="103.36.221.226")
     port: int = Field(default=5432)
-    database: str = Field(default="loemon")
-    username: str = Field(default="lemon2judy")
-    password: str = Field(default="")
+    database: str = Field(default="spider-mall")
+    username: str = Field(default="loemon")
+    password: str = Field(default="lemon2judy")
     pool_size: int = Field(default=10)
     max_overflow: int = Field(default=20)
 
